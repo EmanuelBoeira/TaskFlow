@@ -3,10 +3,13 @@ using TaskFlow.Domain.Entities;
 
 namespace TaskFlow.Infrastructure.Persistence;
 
-public class TaskFlowDBContext(
-    DbContextOption<TaskFlowDBContext> options
-    ) : DbContext(options)
+public class TaskFlowDBContext : DbContext
 {
+    public TaskFlowDBContext(
+        DbContextOptions<TaskFlowDBContext> options
+    ) : base(options) {}
+
+
     public DbSet<TaskItem> Tasks => Set<TaskItem>();
 
     protected override void OnModelCreating( ModelBuilder modelBuilder )
@@ -17,7 +20,9 @@ public class TaskFlowDBContext(
         {
             entity.ToTable("tasks");
 
-            entity.HasKey(task => task.Id).HasColumnName("Id");
+            entity.HasKey(task => task.Id);
+
+            entity.Property(task => task.Id).HasColumnName("Id");
             
             entity.Property(task => task.Title).HasColumnName("Title").HasMaxLength(2000).IsRequired();
 

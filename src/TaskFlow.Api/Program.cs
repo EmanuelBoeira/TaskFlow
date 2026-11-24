@@ -18,7 +18,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<TaskFlowDBContext>(options =>
     options.UseNpgsql(
-        builder.GetConfigurationString("Defaultconnection")
+        builder.Configuration.GetConnectionString("Defaultconnection")
     )
 );
 
