@@ -4,7 +4,7 @@ using TaskFlow.Domain.Entities;
 namespace TaskFlow.Infrastructure.Persistence;
 
 public class TaskFlowDBContext(
-    DBContextOption<TaskFlowDBContext> options
+    DbContextOption<TaskFlowDBContext> options
     ) : DbContext(options)
 {
     public DbSet<TaskItem> Tasks => Set<TaskItem>();
@@ -17,17 +17,17 @@ public class TaskFlowDBContext(
         {
             entity.ToTable("tasks");
 
-            entity.HasKey(task => task.Id);
+            entity.HasKey(task => task.Id).HasColumnName("Id");
             
-            entity.Property(task => task.Title).HasMaxLength(2000).IsRequired();
+            entity.Property(task => task.Title).HasColumnName("Title").HasMaxLength(2000).IsRequired();
 
-            entity.Property(task => task.Description).HasMaxLength(2000).IsRequired();
+            entity.Property(task => task.Description).HasColumnName("Description").HasMaxLength(2000).IsRequired();
 
-            entity.Property(task => task.IsCompleted).IsRequired();
+            entity.Property(task => task.IsCompleted).HasColumnName("Iscompleted").IsRequired();
 
-            entity.Property(task => task.CreatedAt).IsRequired();
+            entity.Property(task => task.CreatedAt).HasColumnName("CreatedAt").IsRequired();
 
-            entity.Property(task => task.UpdatedAt);
+            entity.Property(task => task.UpdatedAt).HasColumnName("UpdatedAt");
         });
     }
 }
