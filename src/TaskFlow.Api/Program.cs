@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using TaskFlow.Aplication.Interfaces;
 using TaskFlow.Aplication.Services;
+using TaskFlow.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +13,14 @@ builder.Services.AddHttpsRedirection(options =>
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<TaskFlowDBContext>(options =>
+    options.UseNpgsql(
+        builder.GetConfigurationString("Defaultconnection")
+    )
+);
 
 builder.Services.AddScoped<ITaskService, TaskService>();
 
