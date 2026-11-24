@@ -1,0 +1,99 @@
+# ==========================================
+# .NET / ASP.NET Core
+# ==========================================
+
+[Bb]in/
+[Oo]bj/
+[Ll]ogs/
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.cache
+
+# ==========================================
+# Visual Studio
+# ==========================================
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ==========================================
+# Visual Studio Code
+# ==========================================
+
+.vscode/
+
+# ==========================================
+# JetBrains / Rider
+# ==========================================
+
+.idea/
+*.sln.iml
+
+# ==========================================
+# Configurações locais e secrets
+# ==========================================
+
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+.env
+.env.*
+!.env.example
+
+# Certificados e chaves privadas
+*.pfx
+*.p12
+*.key
+*.pem
+
+# ==========================================
+# Entity Framework Core
+# ==========================================
+
+# Arquivos temporários de ferramentas
+efbundle
+efbundle.exe
+
+# ==========================================
+# PostgreSQL
+# ==========================================
+
+*.dump
+*.backup
+*.sql.gz
+
+# Arquivos de banco de dados locais
+*.db
+*.sqlite
+*.sqlite3
+
+# ==========================================
+# Build e publicação
+# ==========================================
+
+publish/
+artifacts/
+TestResults/
+coverage/
+coverage.*
+
+# ==========================================
+# Sistema operacional
+# ==========================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# Node.js (caso exista frontend)
+# ==========================================
+
+node_modules/
+npm-debug.log*
