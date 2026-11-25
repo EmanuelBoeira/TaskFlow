@@ -6,38 +6,37 @@ namespace TaskFlow.Aplication.Services;
 
 public class TaskService : ITaskService
 {
-    private readonly List<TaskItem> _tasks = new();
+    private readonly ITaskRepository _taskRepository;
 
-    public Task<TaskResponseDTO> CreateAsync(CreateTaskDTO dto)
+    public TaskService(ITaskRepository taskRepository)
+    {
+        _taskRepository = taskRepository;
+    }
+
+    public async Task<TaskResponseDTO> CreateAsync(CreateTaskDTO dto)
     {
         var task = new TaskItem(
             dto.Title,
             dto.Description
         );
 
-        _tasks.Add(task);
+        await _taskRepository.AssAsync(task);
 
-        var response = MapToResponse(task);
-
-        return Task.FromResult(response);
+        return MapToResponse(task);
     }
 
-    public Task<IEnumerable<TaskResponseDTO>> GetAllAsync()
+    public async Task<IEnumerable<TaskResponseDTO>> GetAllAsync()
     {
-        var response = _tasks.Select(MapToResponse);
+        var tasks = await _taskRepository.GetAllAsync();
 
-        return Task.FromResult(
-            (IEnumerable<TaskResponseDTO>)response
-        );
+        return tasks.Select(MapToResponse);
     }
 
-    public Task<TaskResponseDTO?> GetByIdAsync(Guid id)
+    public async Task<TaskResponseDTO?> GetByIdAsync(Guid id)
     {
-        var task = _tasks.FirstOrDefault(t => t.Id == id);
+        var task = await _taskRepository.GetByIdAsync(id);
 
-        var response = task is null ? null : MapToResponse(task);
-
-        return Task.FromResult(response);
+        return task is null ? null : MapToResponse(task);
     }
 
     private static TaskResponseDTO MapToResponse(TaskItem task)
