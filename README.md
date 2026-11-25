@@ -55,3 +55,17 @@ No diretório raíz do projeto execute os seguintes comandos:
 `dotnet build`
 
 `dotnet run --project src/TaskFlow.Api`
+
+Após executar os comandos acima, a API estará escutando 
+requisições que poderão ser feitas pelo link informado 
+adicionado o endpoint desejado e o tipo de requisição 
+(POST, GET, PUT ou DELETE), como no dexemplo a seguir 
+atilizando a ferramenta de terminal `curl`:
+
+    curl -k -X POST https://localhost:5001/api/tasks 
+    -H "Content-Type: application/json"   
+    -d '
+    {
+        "title": "tarefa 2", 
+        "description": "Operaçaão POST com PostgreSQL"
+    }'
