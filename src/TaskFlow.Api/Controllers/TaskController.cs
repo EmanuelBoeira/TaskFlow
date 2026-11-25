@@ -40,4 +40,14 @@ public class TasksController : ControllerBase
 
         return Ok(task);
     }
+
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTaskDTO dto)
+    {
+        var task = await _taskService.UpdateAsync(id, dto);
+
+        if (task is null) return NotFound();
+
+        return Ok(task);
+    }
 }
