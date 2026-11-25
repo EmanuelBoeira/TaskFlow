@@ -52,7 +52,7 @@ public class TasksController : ControllerBase
     }
 
     [HttpDelete("{id:guid}")]
-    public aasync Task<IActionResult> Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         var deleted = await _taskService.DeleteAsync(id);
 

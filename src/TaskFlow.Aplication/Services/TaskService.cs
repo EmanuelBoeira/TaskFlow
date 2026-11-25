@@ -57,7 +57,7 @@ public class TaskService : ITaskService
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        var task await _taskRepository.GetByIdAsync(id);
+        var task = await _taskRepository.GetByIdAsync(id);
 
         if (task is null) return false;
 
