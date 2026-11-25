@@ -26,7 +26,7 @@ public class TaskRepository : ITaskRepository
         return await _context.Tasks.AsNoTracking().ToListAsync();
     }
 
-    public async Task<TaskItem> GetByIdAsync(Guid id)
+    public async Task<TaskItem?> GetByIdAsync(Guid id)
     {
         return await _context.Tasks.AsNoTracking().FirstOrDefaultAsync(task => task.Id == id);
     }
