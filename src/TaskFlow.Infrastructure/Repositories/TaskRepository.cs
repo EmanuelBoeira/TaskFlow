@@ -30,4 +30,11 @@ public class TaskRepository : ITaskRepository
     {
         return await _context.Tasks.AsNoTracking().FirstOrDefaultAsync(task => task.Id == id);
     }
+
+    public async Task UpdateAsync(TaskItem task)
+    {
+        _context.Tasks.Update(task);
+
+        await _context.SaveChangesAsync();
+    }
 }
