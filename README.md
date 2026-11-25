@@ -27,11 +27,22 @@ Mapping) e `Npgsql` como driver para conexão com PostgreSQL.
   |  TaskFlow.Domain  |  Apresenta arquivos que descrevem o domínio da aplicação, neste caso, apenas a Entitie TaskItem  |
   |  TaskFlow.Infrastructure  |  Neste diretório estão arquivos relacionados à persistencia e manipulação dos dados no Banco de Dados  |
 
+## Endpoints
+
+  |  endpoint  |  descrição  |
+  |  :---:  |  ---  |
+  |  POST /api/tasks  |  Criação de uma task  |
+  |  GET /api/tasks  |  Leitura de todas as tasks  |
+  |  GET /api/tasks/{id}  |  Leitura de apenas uma task identificada pelo id passado  |
+  |  PUT /api/tasks/{id}  |  Atualização do Título e descrição da task identificada pelo id passado  |
+  |  DELETE /api/tasks/{id}  |  Remove a task informada pelo id passado  (retorno 204 = ok, retorno 404 = Not Found)|
+
+
 
 # Dependências
 
-- .NET 10 ou superior
-- ASPNET Core
+- .NET-sdk 10 ou superior
+- ASPNET Targeting pack
 - PostgreSQL
 - EntityFrameWorkCore
 - Npgsql
