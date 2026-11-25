@@ -42,15 +42,17 @@ Mapping) e `Npgsql` como driver para conexão com PostgreSQL.
 # Dependências
 
 - .NET-sdk 10 ou superior
-- ASPNET Targeting pack
+- ASPNET Targeting pack (instalado separadamente no linux)
 - PostgreSQL
-- EntityFrameWorkCore
-- Npgsql
+- EntityFrameWorkCore (instalado automaticamente com dotnet restore)
+- Npgsql (instalado automaticamente com dotnet restore)
 
 
 # Forma de execução
 
 No diretório raíz do projeto execute os seguintes comandos:
+
+`dotnet restore`
 
 `dotnet build`
 
