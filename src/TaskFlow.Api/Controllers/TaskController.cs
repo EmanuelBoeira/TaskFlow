@@ -50,4 +50,14 @@ public class TasksController : ControllerBase
 
         return Ok(task);
     }
+
+    [HttpDelete("{id:guid}")]
+    public aasync Task<IActionResult> Delete(Guid id)
+    {
+        var deleted = await _taskService.DeleteAsync(id);
+
+        if (!deleted) return NotFound();
+
+        return NoContent();
+    }
 }
