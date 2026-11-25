@@ -11,4 +11,6 @@ public interface ITaskService
     Task<TaskResponseDTO?> GetByIdAsync(Guid id);
 
     Task<TaskResponseDTO?> UpdateAsync(Guid id, UpdateTaskDTO dto);
+
+    Task<bool> DeleteAsync(Guid id);
 }
