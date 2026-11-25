@@ -8,5 +8,7 @@ public interface ITaskRepository
 
     Task<IEnumerable<TaskItem>> GetAllAsync();
 
-    Task<TaskItem?> GetByIdAsync(Guid id);    
+    Task<TaskItem?> GetByIdAsync(Guid id);
+
+    Task UpdateAsync(TaskItem task);
 }
