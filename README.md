@@ -33,6 +33,8 @@ Mapping) e `Npgsql` como driver para conexão com PostgreSQL.
 - .NET 10 ou superior
 - ASPNET Core
 - PostgreSQL
+- EntityFrameWorkCore
+- Npgsql
 
 
 # Forma de execução
