@@ -39,14 +39,14 @@ public class TaskService : ITaskService
         return task is null ? null : MapToResponse(task);
     }
 
-    public async Tas<TaskResponseDTO?> UpdateAsync(
+    public async Task<TaskResponseDTO?> UpdateAsync(
         Guid id,
-        UpdateTaslDTO dto
+        UpdateTaskDTO dto
     )
     {
         var task = await _taskRepository.GetByIdAsync(id);
 
-        if (task is null) return nill;
+        if (task is null) return null;
 
         task.Update(dto.Title, dto.Description);
 
