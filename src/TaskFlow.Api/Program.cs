@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TaskFlow.Aplication.Interfaces;
 using TaskFlow.Aplication.Services;
 using TaskFlow.Infrastructure.Persistence;
+using TaskFlow.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ builder.Services.AddDbContext<TaskFlowDBContext>(options =>
         builder.Configuration.GetConnectionString("Defaultconnection")
     )
 );
+
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
 builder.Services.AddScoped<ITaskService, TaskService>();
 

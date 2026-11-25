@@ -14,7 +14,7 @@ public class TaskRepository : ITaskRepository
         _context = context;
     }
 
-    public async Task AddAsync(taskItem task)
+    public async Task AddAsync(TaskItem task)
     {
         await _context.Tasks.AddAsync(task);
 

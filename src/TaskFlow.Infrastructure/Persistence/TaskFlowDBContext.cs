@@ -28,7 +28,7 @@ public class TaskFlowDBContext : DbContext
 
             entity.Property(task => task.Description).HasColumnName("Description").HasMaxLength(2000).IsRequired();
 
-            entity.Property(task => task.IsCompleted).HasColumnName("Iscompleted").IsRequired();
+            entity.Property(task => task.IsCompleted).HasColumnName("IsCompleted").IsRequired();
 
             entity.Property(task => task.CreatedAt).HasColumnName("CreatedAt").IsRequired();
 

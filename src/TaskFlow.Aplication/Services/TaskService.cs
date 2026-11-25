@@ -20,7 +20,7 @@ public class TaskService : ITaskService
             dto.Description
         );
 
-        await _taskRepository.AssAsync(task);
+        await _taskRepository.AddAsync(task);
 
         return MapToResponse(task);
     }

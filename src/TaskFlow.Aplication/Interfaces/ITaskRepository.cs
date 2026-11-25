@@ -1,10 +1,10 @@
-using TaskFlow.Domain.entities;
+using TaskFlow.Domain.Entities;
 
-namespace ITaskRepository;
+namespace TaskFlow.Aplication.Interfaces;
 
 public interface ITaskRepository
 {
-    Task AssAsync(TaskItem task);
+    Task AddAsync(TaskItem task);
 
     Task<IEnumerable<TaskItem>> GetAllAsync();
 
