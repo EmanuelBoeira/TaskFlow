@@ -9,4 +9,6 @@ public interface ITaskService
     Task<IEnumerable<TaskResponseDTO>> GetAllAsync();
 
     Task<TaskResponseDTO?> GetByIdAsync(Guid id);
+
+    Task<TaskResponseDTO?> UpdateAsync(Guid id, UpdateTaskDTO dto);
 }
