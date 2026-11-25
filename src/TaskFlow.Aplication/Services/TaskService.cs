@@ -55,6 +55,17 @@ public class TaskService : ITaskService
         return MapToResponse(task);
     }
 
+    public async Task<bool> DeleteAsync(Guid id)
+    {
+        var task await _taskRepository.GetByIdAsync(id);
+
+        if (task is null) return false;
+
+        await _taskRepository.DeleteAsync(task);
+
+        return true;
+    }
+
     private static TaskResponseDTO MapToResponse(TaskItem task)
     {
         return new TaskResponseDTO
